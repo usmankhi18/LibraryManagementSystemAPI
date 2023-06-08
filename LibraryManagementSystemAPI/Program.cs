@@ -1,3 +1,4 @@
+using BusinessLogic.ApplicationCache;
 using BusinessLogic.Implementation;
 using BusinessLogic.Interfaces;
 using Common.Constants;
@@ -5,6 +6,7 @@ using Global.AppSettings;
 using IRepository;
 using LibraryManagementSystemAPI.Extensions;
 using MongoDB.Driver;
+using MongoDB.Driver.Core.Configuration;
 using POCO.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +42,8 @@ app.Run();
 
 static WebApplicationBuilder DependencyInjection(WebApplicationBuilder builder)
 {
+    builder.Services.AddSingleton(new Common.Cache.RedisCacheManager(AppSettingKeys.RedisConnectionString));
+    builder.Services.AddSingleton<StudentCache>();
     builder.Services.AddScoped<IStudentService, StudentService>();
     switch (AppSettingKeys.ConnType)
     {
