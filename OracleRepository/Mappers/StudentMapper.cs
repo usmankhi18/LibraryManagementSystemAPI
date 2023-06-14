@@ -2,7 +2,7 @@
 using POCO.Models;
 using System.Data;
 
-namespace OracleRepository.Mappers
+namespace Oracle.Mappers
 {
     public class StudentMapper
     {

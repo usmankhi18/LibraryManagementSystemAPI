@@ -61,6 +61,7 @@ static WebApplicationBuilder DependencyInjection(WebApplicationBuilder builder)
             break;
         case DBConstants.PosgresOption:
             // PosGres option selected
+            builder.Services.AddScoped<Posgres.DBContext.IDatabaseContext>(provider => new Posgres.DBContext.PosgresConnectionContext(AppSettingKeys.PostgreSQLConnection));
             builder.Services.AddScoped<IStudentRepository, Posgres.StudentRepository>();
             break;
         case DBConstants.MongoOption:

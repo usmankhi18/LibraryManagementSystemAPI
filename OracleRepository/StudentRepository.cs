@@ -3,7 +3,7 @@ using POCO.Models;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.DBContext;
 using Oracle.ManagedDataAccess.Types;
-using OracleRepository.Mappers;
+using Oracle.Mappers;
 
 namespace Oracle
 {
