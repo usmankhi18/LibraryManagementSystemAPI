@@ -10,8 +10,8 @@ namespace Common.Cache
 
         public RedisCacheManager(string connectionString)
         {
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connectionString);
-            _redisDb = redis.GetDatabase();
+           //ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connectionString);
+            //_redisDb = redis.GetDatabase();
         }
 
         public void SaveDataToCache<T>(string key, T data, TimeSpan? expirationTime = null)
