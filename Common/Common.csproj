@@ -7,22 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Security\Security.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.7.101.145" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.2.0" />
+    <PackageReference Include="OpenTelemetry" Version="1.5.0" />
+    <PackageReference Include="prometheus-net" Version="8.0.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.6.111" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Global.AppSettings\Global.AppSettings.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Observibility\" />
   </ItemGroup>
 
 </Project>

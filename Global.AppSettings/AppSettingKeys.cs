@@ -31,5 +31,23 @@
 
         // Getter and setter for "ConnType" key
         public static string ConnType { get; set; }
+
+        public static string AuthName { get; set; }
+        public static string Authorization { get; set; }
+        public static string user_pool_id { get; set; }
+        //public static string client_id { get; set; }
+        public static string region { get; set; }
+        public static string awsAccessKeyId { get; set; }
+        public static string awsAccessSecretId { get; set; }
+        public static string KongAccessTokenURl { get; set; }
+        public static string KongAdminUrl { get; set; }
+        public static string TokenExpiryEndpoint { get; set; }
+        public static string ConsumersEndpoint { get; set; }
+        public static string OAuthDetailsEndpoint { get; set; }
+        public static string JWTConsumerID { get; set; }
+        public static string JWTConsumerName { get; set; }
+        public static string JWTTokenExpiryMins { get; set; }
+        public static string JWTClientID { get; set; }
+        public static string JWTClientSecret { get; set; }
     }
 }
