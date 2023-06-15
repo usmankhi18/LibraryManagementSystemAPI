@@ -27,8 +27,4 @@
     <ProjectReference Include="..\SQLServerRepository\SQLServerRepository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Middleware\" />
-  </ItemGroup>
-
 </Project>

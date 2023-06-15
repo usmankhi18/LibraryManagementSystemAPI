@@ -31,7 +31,6 @@ namespace BusinessLogic.Implementation
             List<Student> students = studentCache.GetStudentsFromCache(AppSettingKeys.RedisKey);
             if (students == null)
             {
-                // Call the repository method to get returning students
                 return studentRepository.GetAllStudents();
             }
             return students;
