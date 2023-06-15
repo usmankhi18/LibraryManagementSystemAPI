@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Middleware\" />
+	  <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="7.0.7" />
+	  <PackageReference Include="NuGet.CommandLine" Version="6.6.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	  <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +26,10 @@
     <ProjectReference Include="..\POCO\POCO.csproj" />
     <ProjectReference Include="..\PosgresRepository\PosgresRepository.csproj" />
     <ProjectReference Include="..\SQLServerRepository\SQLServerRepository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
   </ItemGroup>
 
 </Project>

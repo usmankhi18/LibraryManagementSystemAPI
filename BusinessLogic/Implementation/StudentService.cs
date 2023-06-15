@@ -3,12 +3,7 @@ using BusinessLogic.Interfaces;
 using Global.AppSettings;
 using IRepository;
 using POCO.Models;
-using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using POCO.ResponseDTO;
 
 namespace BusinessLogic.Implementation
 {
@@ -23,11 +18,12 @@ namespace BusinessLogic.Implementation
             this.studentCache = cache;
         }
 
-        public bool DeleteStudent(Student student)
+        public DeleteDTO DeleteStudent(Student student)
         {
-            bool isDelete = studentRepository.DeleteStudent(student);
+            DeleteDTO deleteDTO = new DeleteDTO();
+            deleteDTO.IsDeleted = studentRepository.DeleteStudent(student);
             studentCache.ClearCache(AppSettingKeys.RedisKey);
-            return isDelete;
+            return deleteDTO;
         }
 
         public List<Student> GetAllStudents()
@@ -46,18 +42,20 @@ namespace BusinessLogic.Implementation
             return studentRepository.GetStudents(student);
         }
 
-        public bool InsertStudents(Student student)
+        public InsertDTO InsertStudents(Student student)
         {
-            bool isInsert = studentRepository.InsertStudents(student);
+            InsertDTO insertDTO = new InsertDTO();
+            insertDTO.IsInserted = studentRepository.InsertStudents(student);
             studentCache.ClearCache(AppSettingKeys.RedisKey);
-            return isInsert;
+            return insertDTO;
         }
 
-        public bool UpdateStudent(Student student)
+        public UpdateDTO UpdateStudent(Student student)
         {
-            bool isUpdate = studentRepository.UpdateStudent(student);
+            UpdateDTO updateDTO = new UpdateDTO();
+            updateDTO.IsUpdated = studentRepository.UpdateStudent(student);
             studentCache.ClearCache(AppSettingKeys.RedisKey);
-            return isUpdate;
+            return updateDTO;
         }
     }
 }

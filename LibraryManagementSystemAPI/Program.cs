@@ -6,7 +6,6 @@ using Global.AppSettings;
 using IRepository;
 using LibraryManagementSystemAPI.Extensions;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Configuration;
 using POCO.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.LoadKeys(builder.Configuration);
+
 builder = DependencyInjection(builder);
 
 var app = builder.Build();
@@ -37,9 +37,6 @@ app.MapControllers();
 
 app.Run();
 
-
-
-
 static WebApplicationBuilder DependencyInjection(WebApplicationBuilder builder)
 {
     builder.Services.AddSingleton(new Common.Cache.RedisCacheManager(AppSettingKeys.RedisConnectionString));
@@ -57,7 +54,7 @@ static WebApplicationBuilder DependencyInjection(WebApplicationBuilder builder)
             // Register the SqlConnectionContext with the connection string
             builder.Services.AddScoped<SQLServer.DBContext.IDatabaseContext>(provider => new SQLServer.DBContext.SqlConnectionContext(AppSettingKeys.SQLServerConnection));
             builder.Services.AddScoped<IStudentRepository, SQLServer.StudentRepository>();
-    
+
             break;
         case DBConstants.PosgresOption:
             // PosGres option selected

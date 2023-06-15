@@ -1,18 +1,14 @@
 ﻿using POCO.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using POCO.ResponseDTO;
 
 namespace BusinessLogic.Interfaces
 {
     public interface IStudentService
     {
         public List<Student> GetAllStudents();
-        public bool InsertStudents(Student student);
+        public InsertDTO InsertStudents(Student student);
         public List<Student> GetStudents(Student student);
-        public bool UpdateStudent(Student student);
-        public bool DeleteStudent(Student student);
+        public UpdateDTO UpdateStudent(Student student);
+        public DeleteDTO DeleteStudent(Student student);
     }
 }
